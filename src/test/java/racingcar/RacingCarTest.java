@@ -4,9 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -56,5 +54,14 @@ class RacingCarTest {
         List<Integer> randoms = new ArrayList<>(Arrays.asList(1,2,3,4,5));
         List<Boolean> moves = new ArrayList<>(Arrays.asList(false,false,false,true,true));
         assertThat(racingCar.createMove(randoms)).containsExactlyElementsOf(moves);
+    }
+
+    @Test
+    void 플레이어_이름_별로_이동값_배정_확인(){
+        List<String> playersCar = new ArrayList<>(Arrays.asList("감자","고구마","옥수수"));
+        List<Boolean> moves = new ArrayList<>(Arrays.asList(false,true,false));
+        Map<String,Boolean> moveInfo = new HashMap<>(Map.of("감자",false,"고구마",true,"옥수수",false));
+
+        assertThat(racingCar.createMoveInformation(playersCar, moves)).contains(moveInfo);
     }
 }
