@@ -9,7 +9,11 @@ public class RacingCar {
 
     public void validateTryCounts(String inputCounts) {
         if(!inputCounts.matches("^[0-9]*$")){
-            throw new IllegalArgumentException("[ERROR] 시도할 회수는 숫자만 입력가능합니다.");
+            throw new IllegalArgumentException("[ERROR] 시도할 횟수는 숫자만 입력가능합니다.");
+        }
+
+        if(Integer.parseInt(inputCounts) > 10){
+            throw new IllegalArgumentException("[ERROR] 시도할 횟수는 10회 이하로만 가능합니다.");
         }
     }
 }
