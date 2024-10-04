@@ -24,4 +24,9 @@ class RacingCarTest {
     void 횟수가_숫자가_아니면_예외(){
         assertThatThrownBy(()->racingCar.validateTryCounts("-6")).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 횟수가_10을_넘으면_예외(){
+        assertThatThrownBy(()->racingCar.validateTryCounts("11")).isInstanceOf(IllegalArgumentException.class);
+    }
 }
