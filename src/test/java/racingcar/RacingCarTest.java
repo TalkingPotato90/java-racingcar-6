@@ -16,7 +16,12 @@ class RacingCarTest {
     }
 
     @Test
-    void 이름이_5자_초과(){
+    void 이름이_5자_초과면_예외(){
         assertThatThrownBy(()->racingCar.validateNameLength("여섯글자이름")).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 횟수가_숫자가_아니면_예외(){
+        assertThatThrownBy(()->racingCar.validateTryCounts()).isInstanceOf(IllegalArgumentException.class);
     }
 }
