@@ -40,4 +40,10 @@ class RacingCarTest {
     void 입력받은_사용자_이름_쉼표로_구분하기(){
         assertThat(racingCar.createPlayersCar("감,자,동차")).hasSize(3);
     }
+
+    @Test
+    void 자동차_수와_무작위_수의_개수_일치(){
+        assertThat(racingCar.createPlayersCar("감자,의자,동차,넷"))
+                .hasSize(racingCar.createRandomNumber(4).size());
+    }
 }
