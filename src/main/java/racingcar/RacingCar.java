@@ -33,6 +33,16 @@ public class RacingCar {
         return numbers;
     }
 
+    public List<Boolean> createMove(List<Integer> randomNumbers) {
+        List<Boolean> moves = new ArrayList<>();
+
+        for (Integer randomNumber : randomNumbers) {
+            moves.add(randomNumber >= 4);
+        }
+
+        return moves;
+    }
+
     public List<String> createPlayersCar(String inputNames) {
         List<String> players = new ArrayList<>(Arrays.asList(inputNames.split(",")));
         return players;
