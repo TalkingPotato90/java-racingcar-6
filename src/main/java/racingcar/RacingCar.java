@@ -1,5 +1,11 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class RacingCar {
     public void validateNameLength(String inputName) {
         if (inputName.length() > 5) {
@@ -15,5 +21,14 @@ public class RacingCar {
         if(Integer.parseInt(inputCounts) > 10){
             throw new IllegalArgumentException("[ERROR] 시도할 횟수는 10회 이하로만 가능합니다.");
         }
+    }
+
+    public List<Integer> createRandomNumber(int player){
+        List<Integer> numbers = new ArrayList<>();
+        for (int i = 0; i < player; i++) {
+            numbers.add(Randoms.pickNumberInRange(0,9));
+        }
+
+        return numbers;
     }
 }

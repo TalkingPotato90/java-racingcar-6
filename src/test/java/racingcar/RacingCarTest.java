@@ -33,6 +33,6 @@ class RacingCarTest {
 
     @Test
     void 지정된_개수만큼_무작위_숫자_생성(){
-        assertThat(racingCar.createRandomNumber()).hasSize();
+        assertThat(racingCar.createRandomNumber(5)).hasSize(5);
     }
 }
