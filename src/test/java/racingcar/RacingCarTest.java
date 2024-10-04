@@ -35,4 +35,9 @@ class RacingCarTest {
     void 지정된_개수만큼_무작위_숫자_생성(){
         assertThat(racingCar.createRandomNumber(5)).hasSize(5);
     }
+
+    @Test
+    void 입력받은_사용자_이름_쉼표로_구분하기(){
+        assertThat(racingCar.createPlayersCar("감,자,동차")).hasSize(3);
+    }
 }
