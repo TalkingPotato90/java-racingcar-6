@@ -47,4 +47,14 @@ public class RacingCar {
         List<String> players = new ArrayList<>(Arrays.asList(inputNames.split(",")));
         return players;
     }
+
+    public Map<String,Boolean> createMoveInformation(List<String> playersCar, List<Boolean> moves) {
+        Map<String,Boolean> moveInformation = new HashMap<>();
+
+        for (int i = 0; i < playersCar.size(); i++) {
+            moveInformation.put(playersCar.get(i), moves.get(i));
+        }
+
+        return moveInformation;
+    }
 }

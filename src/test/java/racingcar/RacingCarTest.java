@@ -62,6 +62,6 @@ class RacingCarTest {
         List<Boolean> moves = new ArrayList<>(Arrays.asList(false,true,false));
         Map<String,Boolean> moveInfo = new HashMap<>(Map.of("감자",false,"고구마",true,"옥수수",false));
 
-        assertThat(racingCar.createMoveInformation(playersCar, moves)).contains(moveInfo);
+        assertThat(racingCar.createMoveInformation(playersCar, moves)).isEqualTo(moveInfo);
     }
 }
