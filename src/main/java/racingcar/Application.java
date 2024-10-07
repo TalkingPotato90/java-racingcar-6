@@ -24,10 +24,16 @@ public class Application {
         String count = inputView.getTryCounts();
         racingCar.validateTryCounts(count);
 
-        List<Integer> randomNumbers = racingCar.createRandomNumber(playerCars.size());
-        List<Boolean> moves = racingCar.createMove(randomNumbers);
-        Map<String, Boolean> moveInformation = racingCar.createMoveInformation(playerCars, moves);
+        outputView.print("실행 결과");
 
-        racingCar.printResult(moveInformation, playerCars);
+        for (int i = 0; i < Integer.parseInt(count); i++) {
+            List<Integer> randomNumbers = racingCar.createRandomNumber(playerCars.size());
+            List<Boolean> moves = racingCar.createMove(randomNumbers);
+            Map<String, Boolean> moveInformation = racingCar.createMoveInformation(playerCars, moves);
+
+
+            racingCar.printResult(moveInformation, playerCars);
+        }
+
     }
 }
