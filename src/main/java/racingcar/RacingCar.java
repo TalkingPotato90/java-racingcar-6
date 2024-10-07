@@ -1,11 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import org.junit.jupiter.api.Test;
 
 import java.util.*;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class RacingCar {
     public void validateNameLength(String inputName) {
