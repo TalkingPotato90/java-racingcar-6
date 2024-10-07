@@ -65,4 +65,9 @@ class RacingCarTest {
 
         assertThat(racingCar.createMoveInformation(playersCar, moves)).isEqualTo(moveInfo);
     }
+
+    @Test
+    void 최종_우승자_선정_확인(){
+        assertThat(racingCar.selectWinner()).isEqualTo("pobi, jun");
+    }
 }

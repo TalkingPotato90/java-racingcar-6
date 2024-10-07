@@ -35,5 +35,7 @@ public class Application {
             racingCar.printResult(moveInformation, playerCars);
         }
 
+        outputView.print("최종 우승자");
+
     }
 }
