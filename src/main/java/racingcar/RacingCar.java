@@ -59,7 +59,12 @@ public class RacingCar {
 
     public void printResult(Map<String,Boolean> moveInformation, List<String> playersCar) {
         for (int i = 0; i < moveInformation.size(); i++) {
-            System.out.println(playersCar.get(i) + ": " + moveInformation.get(playersCar.get(i)));
+            String result = "";
+            if (moveInformation.get(playersCar.get(i))) {
+                result = "-".repeat(1);
+            }
+            System.out.println(playersCar.get(i) + ": " + result);
         }
+        System.out.println();
     }
 }
