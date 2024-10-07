@@ -63,8 +63,9 @@ public class RacingCar {
             if (moveInformation.get(playersCar.get(i))) {
                 OutputController.getInstance().appendResult(playersCar.get(i),"-");
             }
-            System.out.println(playersCar.get(i) + ": " + OutputController.getInstance()
-                    .getPosition(playersCar.get(i)));
+            String result = playersCar.get(i) + " : " + OutputController.getInstance()
+                    .getPosition(playersCar.get(i));
+            System.out.println(result);
         }
         System.out.println();
     }

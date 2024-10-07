@@ -13,10 +13,10 @@ public class Application {
         outputView.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
         InputView inputView = new InputView();
-        String message = inputView.getUserInput();
+        String carNames = inputView.getUserInput();
 
         RacingCar racingCar = new RacingCar();
-        List<String> playerCars = racingCar.createPlayersCar(message);
+        List<String> playerCars = racingCar.createPlayersCar(carNames);
         racingCar.validateNameLength(playerCars);
 
         outputView.print("시도할 회수는 몇회인가요?");
@@ -37,7 +37,7 @@ public class Application {
 
         String winner = racingCar.selectWinner(playerCars);
 
-        outputView.print("최종 우승자 : ");
+        outputView.print("최종 우승자 : " + winner);
 
     }
 }
