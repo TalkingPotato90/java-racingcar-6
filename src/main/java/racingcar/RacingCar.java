@@ -69,5 +69,20 @@ public class RacingCar {
         System.out.println();
     }
 
+    public String selectWinner(Map<String,Boolean> moveInformation) {
+        String winner = "";
+
+        int maxPosition = 0;
+
+        for (String player : moveInformation.keySet()) {
+            String currentPosition = OutputController.getInstance().getPosition(player);
+            if (currentPosition.length() > maxPosition) {
+                maxPosition = currentPosition.length();
+                winner = player;
+            }
+        }
+
+        return winner;
+    }
 
 }
