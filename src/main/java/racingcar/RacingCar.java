@@ -49,7 +49,7 @@ public class RacingCar {
     }
 
     public Map<String,Boolean> createMoveInformation(List<String> playersCar, List<Boolean> moves) {
-        Map<String,Boolean> moveInformation = new HashMap<>();
+        Map<String,Boolean> moveInformation = new LinkedHashMap<>();
 
         for (int i = 0; i < playersCar.size(); i++) {
             moveInformation.put(playersCar.get(i), moves.get(i));
@@ -70,19 +70,22 @@ public class RacingCar {
     }
 
     public String selectWinner(Map<String,Boolean> moveInformation) {
-        String winner = "";
+        List<String> winner = new ArrayList<>();
 
-        int maxPosition = 0;
+        int maxPosition = -1;
 
         for (String player : moveInformation.keySet()) {
             String currentPosition = OutputController.getInstance().getPosition(player);
             if (currentPosition.length() > maxPosition) {
                 maxPosition = currentPosition.length();
-                winner = player;
+                winner.clear();
+                winner.add(player);
+            } else if (currentPosition.length() == maxPosition) {
+                winner.add(player);
             }
         }
 
-        return winner;
+        return String.join(", ", winner);
     }
 
 }
