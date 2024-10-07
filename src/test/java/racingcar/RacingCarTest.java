@@ -73,7 +73,7 @@ class RacingCarTest {
         for (int i = 0; i < 3 ; i++) {
             racingCar.printResult(moveInfo,playersCar);
         }
-        assertThat(racingCar.selectWinner(moveInfo)).isEqualTo("감자, 고구마");
+        assertThat(racingCar.selectWinner(playersCar)).isEqualTo("감자, 고구마");
 
     }
 }

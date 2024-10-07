@@ -35,7 +35,9 @@ public class Application {
             racingCar.printResult(moveInformation, playerCars);
         }
 
-        outputView.print("최종 우승자");
+        String winner = racingCar.selectWinner(playerCars);
+
+        outputView.print("최종 우승자 : ");
 
     }
 }
