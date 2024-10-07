@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.controller.OutputController;
 
 import java.util.*;
 
@@ -59,11 +60,11 @@ public class RacingCar {
 
     public void printResult(Map<String,Boolean> moveInformation, List<String> playersCar) {
         for (int i = 0; i < moveInformation.size(); i++) {
-            String result = "";
             if (moveInformation.get(playersCar.get(i))) {
-                result = "-".repeat(1);
+                OutputController.getInstance().appendResult(playersCar.get(i),"-");
             }
-            System.out.println(playersCar.get(i) + ": " + result);
+            System.out.println(playersCar.get(i) + ": " + OutputController.getInstance()
+                    .getPosition(playersCar.get(i)));
         }
         System.out.println();
     }

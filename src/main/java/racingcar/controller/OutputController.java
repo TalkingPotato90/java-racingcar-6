@@ -1,12 +1,14 @@
 package racingcar.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class OutputController {
     private static OutputController outputController;
-
-    private StringBuilder result;
+    private Map<String, StringBuilder> positions;
 
     private OutputController() {
-        result = new StringBuilder();
+        positions = new HashMap<>();
     }
 
     public static synchronized OutputController getInstance() {
@@ -17,12 +19,12 @@ public class OutputController {
         return outputController;
     }
 
-    public void appendResult(String move) {
-        result.append(move);
+    public void appendResult(String carName, String move) {
+        positions.putIfAbsent(carName, new StringBuilder());
+        positions.get(carName).append(move);
     }
 
-    @Override
-    public String toString() {
-        return result.toString();
+    public String getPosition(String carName) {
+        return positions.getOrDefault(carName, new StringBuilder()).toString();
     }
 }
