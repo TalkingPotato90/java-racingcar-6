@@ -20,7 +20,8 @@ class RacingCarTest {
 
     @Test
     void 이름이_5자_초과면_예외(){
-        assertThatThrownBy(()->racingCar.validateNameLength("여섯글자이름")).isInstanceOf(IllegalArgumentException.class);
+        List<String> names = Arrays.asList("여섯글자이름", "longName");
+        assertThatThrownBy(()->racingCar.validateNameLength(names)).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test

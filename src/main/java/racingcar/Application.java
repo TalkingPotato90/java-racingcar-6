@@ -3,6 +3,9 @@ package racingcar;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.List;
+import java.util.Map;
+
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
@@ -12,6 +15,19 @@ public class Application {
         InputView inputView = new InputView();
         String message = inputView.getUserInput();
 
+        RacingCar racingCar = new RacingCar();
+        List<String> playerCars = racingCar.createPlayersCar(message);
+        racingCar.validateNameLength(playerCars);
+
         outputView.print("시도할 회수는 몇회인가요?");
+
+        String count = inputView.getTryCounts();
+        racingCar.validateTryCounts(count);
+
+        List<Integer> randomNumbers = racingCar.createRandomNumber(playerCars.size());
+        List<Boolean> moves = racingCar.createMove(randomNumbers);
+        Map<String, Boolean> moveInformation = racingCar.createMoveInformation(playerCars, moves);
+
+        racingCar.printResult(moveInformation, playerCars);
     }
 }

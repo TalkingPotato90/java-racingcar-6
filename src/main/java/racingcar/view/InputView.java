@@ -8,4 +8,9 @@ public class InputView {
 
         return carNames;
     }
+
+    public String getTryCounts() {
+        String tryCounts = Console.readLine();
+        return tryCounts;
+    }
 }

@@ -5,8 +5,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.*;
 
 public class RacingCar {
-    public void validateNameLength(String inputName) {
-        if (inputName.length() > 5) {
+    public void validateNameLength(List<String> inputName) {
+        boolean isValid = inputName.stream().allMatch(s -> s.length() <= 5);
+        if (!isValid) {
             throw new IllegalArgumentException("[ERROR] 각 이름의 길이는 5자 이내로 가능합니다.");
         }
     }
@@ -54,5 +55,11 @@ public class RacingCar {
         }
 
         return moveInformation;
+    }
+
+    public void printResult(Map<String,Boolean> moveInformation, List<String> playersCar) {
+        for (int i = 0; i < moveInformation.size(); i++) {
+            System.out.println(playersCar.get(i) + ": " + moveInformation.get(playersCar.get(i)));
+        }
     }
 }
