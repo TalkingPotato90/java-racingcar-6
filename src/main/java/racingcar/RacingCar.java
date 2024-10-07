@@ -41,6 +41,7 @@ public class RacingCar {
     }
 
     public List<String> createPlayersCar(String inputNames) {
+        inputNames = inputNames.replaceAll(" ", "");
         List<String> players = new ArrayList<>(Arrays.asList(inputNames.split(",")));
         return players;
     }
