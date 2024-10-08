@@ -63,11 +63,15 @@ public class RacingCar {
 
         for (String player : playersCar) {
             String currentPosition = OutputController.getInstance().getPosition(player);
-            if (currentPosition.length() > maxPosition) {
+            boolean isSoloWin = currentPosition.length() > maxPosition;
+
+            if (isSoloWin) {
                 maxPosition = currentPosition.length();
                 winner.clear();
                 winner.add(player);
-            } else if (currentPosition.length() == maxPosition) {
+            }
+
+            if (currentPosition.length() == maxPosition && !isSoloWin) {
                 winner.add(player);
             }
         }
