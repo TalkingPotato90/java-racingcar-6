@@ -22,7 +22,7 @@ public class Application {
 
         outputView.print(Guide.TRY_COUNT.getMessage());
 
-        String count = inputView.getTryCounts();
+        String count = inputView.getUserInput();
         racingCar.validateTryCounts(count);
 
         outputView.print(Guide.RESULT.getMessage());
