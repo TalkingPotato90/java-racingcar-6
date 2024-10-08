@@ -16,7 +16,7 @@ public enum Guide {
 
     private String message;
 
-    private Guide(String message) {
+    Guide(String message) {
         this.message = message;
     }
 

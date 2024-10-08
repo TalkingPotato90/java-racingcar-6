@@ -3,6 +3,7 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.controller.OutputController;
 import racingcar.util.Guide;
+import racingcar.util.Value;
 
 import java.util.*;
 
@@ -11,7 +12,7 @@ public class RacingCar {
     public List<Integer> createRandomNumber(int player) {
         List<Integer> numbers = new ArrayList<>();
         for (int i = 0; i < player; i++) {
-            numbers.add(Randoms.pickNumberInRange(0, 9));
+            numbers.add(Randoms.pickNumberInRange(Value.RANDOM_MIN.getNumber(), Value.RANDOM_MAX.getNumber()));
         }
 
         return numbers;
@@ -21,7 +22,7 @@ public class RacingCar {
         List<Boolean> moves = new ArrayList<>();
 
         for (Integer randomNumber : randomNumbers) {
-            moves.add(randomNumber >= 4);
+            moves.add(randomNumber >= Value.MOVE_BASE.getNumber());
         }
 
         return moves;
@@ -58,7 +59,7 @@ public class RacingCar {
     public String selectWinner(List<String> playersCar) {
         List<String> winner = new ArrayList<>();
 
-        int maxPosition = -1;
+        int maxPosition = Value.DEFAULT_POSITION.getNumber();
 
         for (String player : playersCar) {
             String currentPosition = OutputController.getInstance().getPosition(player);
