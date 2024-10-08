@@ -44,6 +44,17 @@ public class GameController {
         return count;
     }
 
+    private void printResult(Map<String,Boolean> moveInformation, List<String> playersCar) {
+        for (int i = 0; i < moveInformation.size(); i++) {
+            String carName = playersCar.get(i);
+            if (moveInformation.get(carName)) {
+                OutputController.getInstance().appendResult(carName, Guide.MOVE.getMessage());
+            }
+            outputView.printRaceResult(carName);
+        }
+        outputView.printNextLine();
+    }
+
     private void repeatGame(String count){
         List<Integer> randomNumbers;
         List<Boolean> moves;
@@ -54,7 +65,7 @@ public class GameController {
             moves = racingCar.createMove(randomNumbers);
             moveInformation = racingCar.createMoveInformation(playerCars, moves);
 
-            racingCar.printResult(moveInformation, playerCars);
+            printResult(moveInformation, playerCars);
         }
     }
 

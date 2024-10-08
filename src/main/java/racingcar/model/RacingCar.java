@@ -44,18 +44,6 @@ public class RacingCar {
         return moveInformation;
     }
 
-    public void printResult(Map<String,Boolean> moveInformation, List<String> playersCar) {
-        for (int i = 0; i < moveInformation.size(); i++) {
-            if (moveInformation.get(playersCar.get(i))) {
-                OutputController.getInstance().appendResult(playersCar.get(i), Guide.MOVE.getMessage());
-            }
-            String result = playersCar.get(i) + Guide.COLON.getMessage() + OutputController.getInstance()
-                    .getPosition(playersCar.get(i));
-            System.out.println(result);
-        }
-        System.out.println();
-    }
-
     public String selectWinner(List<String> playersCar) {
         List<String> winner = new ArrayList<>();
 
