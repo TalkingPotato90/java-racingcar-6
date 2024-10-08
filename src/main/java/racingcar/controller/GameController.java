@@ -1,5 +1,5 @@
 package racingcar.controller;
 
-public class gameController {
+public class GameController {
 
 }

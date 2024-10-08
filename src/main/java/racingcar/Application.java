@@ -1,5 +1,6 @@
 package racingcar;
 
+import racingcar.util.Guide;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -10,7 +11,7 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         OutputView outputView = new OutputView();
-        outputView.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        outputView.print(Guide.START.getMessage());
 
         InputView inputView = new InputView();
         String carNames = inputView.getUserInput();
@@ -19,12 +20,12 @@ public class Application {
         List<String> playerCars = racingCar.createPlayersCar(carNames);
         racingCar.validateNameLength(playerCars);
 
-        outputView.print("시도할 회수는 몇회인가요?");
+        outputView.print(Guide.TRY_COUNT.getMessage());
 
         String count = inputView.getTryCounts();
         racingCar.validateTryCounts(count);
 
-        outputView.print("실행 결과");
+        outputView.print(Guide.RESULT.getMessage());
 
         for (int i = 0; i < Integer.parseInt(count); i++) {
             List<Integer> randomNumbers = racingCar.createRandomNumber(playerCars.size());
@@ -37,7 +38,7 @@ public class Application {
 
         String winner = racingCar.selectWinner(playerCars);
 
-        outputView.print("최종 우승자 : " + winner);
+        outputView.print(Guide.WINNER.getMessage() + Guide.COLON.getMessage() + winner);
 
     }
 }

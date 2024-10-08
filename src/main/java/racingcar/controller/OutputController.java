@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class OutputController {
@@ -8,7 +8,7 @@ public class OutputController {
     private Map<String, StringBuilder> positions;
 
     private OutputController() {
-        positions = new HashMap<>();
+        positions = new LinkedHashMap<>();
     }
 
     public static synchronized OutputController getInstance() {

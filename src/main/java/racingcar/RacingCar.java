@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.controller.OutputController;
+import racingcar.util.Guide;
 
 import java.util.*;
 
@@ -9,17 +10,17 @@ public class RacingCar {
     public void validateNameLength(List<String> inputName) {
         boolean isValid = inputName.stream().allMatch(s -> s.length() <= 5);
         if (!isValid) {
-            throw new IllegalArgumentException("[ERROR] 각 이름의 길이는 5자 이내로 가능합니다.");
+            throw new IllegalArgumentException(Guide.NAME_LENGTH_ERROR.getMessage());
         }
     }
 
     public void validateTryCounts(String inputCounts) {
-        if (!inputCounts.matches("^[0-9]*$")) {
-            throw new IllegalArgumentException("[ERROR] 시도할 횟수는 숫자만 입력가능합니다.");
+        if (!inputCounts.matches(Guide.ONLY_DIGIT.getMessage())) {
+            throw new IllegalArgumentException(Guide.TRY_COUNT_FORMAT_ERROR.getMessage());
         }
 
         if (Integer.parseInt(inputCounts) > 10) {
-            throw new IllegalArgumentException("[ERROR] 시도할 횟수는 10회 이하로만 가능합니다.");
+            throw new IllegalArgumentException(Guide.TRY_COUNT_MAX_VALUE_ERROR.getMessage());
         }
     }
 
@@ -44,7 +45,7 @@ public class RacingCar {
 
     public List<String> createPlayersCar(String inputNames) {
         inputNames = inputNames.replaceAll(" ", "");
-        List<String> players = new ArrayList<>(Arrays.asList(inputNames.split(",")));
+        List<String> players = new ArrayList<>(Arrays.asList(inputNames.split(Guide.SPLIT.getMessage())));
         return players;
     }
 
@@ -61,9 +62,9 @@ public class RacingCar {
     public void printResult(Map<String,Boolean> moveInformation, List<String> playersCar) {
         for (int i = 0; i < moveInformation.size(); i++) {
             if (moveInformation.get(playersCar.get(i))) {
-                OutputController.getInstance().appendResult(playersCar.get(i),"-");
+                OutputController.getInstance().appendResult(playersCar.get(i), Guide.MOVE.getMessage());
             }
-            String result = playersCar.get(i) + " : " + OutputController.getInstance()
+            String result = playersCar.get(i) + Guide.COLON.getMessage() + OutputController.getInstance()
                     .getPosition(playersCar.get(i));
             System.out.println(result);
         }
@@ -86,7 +87,7 @@ public class RacingCar {
             }
         }
 
-        return String.join(", ", winner);
+        return String.join(Guide.JOIN.getMessage(), winner);
     }
 
 }
