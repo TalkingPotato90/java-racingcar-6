@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.controller.OutputController;
 import racingcar.util.Guide;
 import racingcar.util.Value;
 
@@ -34,8 +33,8 @@ public class RacingCar {
         return players;
     }
 
-    public Map<String,Boolean> createMoveInformation(List<String> playersCar, List<Boolean> moves) {
-        Map<String,Boolean> moveInformation = new LinkedHashMap<>();
+    public Map<String, Boolean> createMoveInformation(List<String> playersCar, List<Boolean> moves) {
+        Map<String, Boolean> moveInformation = new LinkedHashMap<>();
 
         for (int i = 0; i < playersCar.size(); i++) {
             moveInformation.put(playersCar.get(i), moves.get(i));

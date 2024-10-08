@@ -11,7 +11,7 @@ import java.util.Map;
 public class WinnerController {
     private OutputView outputView = new OutputView();
 
-    public void printResult(Map<String,Boolean> moveInformation, List<String> playersCar) {
+    public void printResult(Map<String, Boolean> moveInformation, List<String> playersCar) {
         for (int i = 0; i < moveInformation.size(); i++) {
             String carName = playersCar.get(i);
             if (moveInformation.get(carName)) {

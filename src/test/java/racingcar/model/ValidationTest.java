@@ -17,18 +17,18 @@ class ValidationTest {
     }
 
     @Test
-    void 이름이_5자_초과면_예외(){
+    void 이름이_5자_초과면_예외() {
         List<String> names = Arrays.asList("여섯글자이름", "longName");
-        assertThatThrownBy(()->validation.validateNameLength(names)).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> validation.validateNameLength(names)).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    void 횟수가_숫자가_아니면_예외(){
-        assertThatThrownBy(()->validation.validateTryCounts("-6")).isInstanceOf(IllegalArgumentException.class);
+    void 횟수가_숫자가_아니면_예외() {
+        assertThatThrownBy(() -> validation.validateTryCounts("-6")).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    void 횟수가_10을_넘으면_예외(){
-        assertThatThrownBy(()->validation.validateTryCounts("11")).isInstanceOf(IllegalArgumentException.class);
+    void 횟수가_10을_넘으면_예외() {
+        assertThatThrownBy(() -> validation.validateTryCounts("11")).isInstanceOf(IllegalArgumentException.class);
     }
 }

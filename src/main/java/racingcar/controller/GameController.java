@@ -31,14 +31,14 @@ public class GameController {
         finishGame();
     }
 
-    private void confirmCarNames(){
+    private void confirmCarNames() {
         outputView.print(Guide.START.getMessage());
         String carNames = inputView.getUserInput();
         playerCars = racingCar.createPlayersCar(carNames);
         validation.validateNameLength(playerCars);
     }
 
-    private String confirmTryCounts(){
+    private String confirmTryCounts() {
         outputView.print(Guide.TRY_COUNT.getMessage());
         String count = inputView.getUserInput();
         validation.validateTryCounts(count);
@@ -46,7 +46,7 @@ public class GameController {
         return count;
     }
 
-    private void repeatGame(String count){
+    private void repeatGame(String count) {
         List<Integer> randomNumbers;
         List<Boolean> moves;
         Map<String, Boolean> moveInformation;
@@ -60,7 +60,7 @@ public class GameController {
         }
     }
 
-    private void finishGame(){
+    private void finishGame() {
         outputView.print(Guide.RESULT.getMessage());
         String winner = winnerController.selectWinner(playerCars);
         outputView.print(Guide.WINNER.getMessage() + Guide.COLON.getMessage() + winner);
