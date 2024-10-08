@@ -3,6 +3,7 @@ package racingcar.model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.controller.WinnerController;
 
 import java.util.*;
 
@@ -49,14 +50,15 @@ class RacingCarTest {
         assertThat(racingCar.createMoveInformation(playersCar, moves)).isEqualTo(moveInfo);
     }
 
-//    @Test
-//    void 최종_우승자_선정_확인(){
-//        List<String> playersCar = new ArrayList<>(Arrays.asList("감자","고구마","옥수수"));
-//        Map<String,Boolean> moveInfo = new LinkedHashMap<>(Map.of("감자",true,"고구마",true,"옥수수",false));
-//        for (int i = 0; i < 3 ; i++) {
-//            racingCar.printResult(moveInfo,playersCar);
-//        }
-//        assertThat(racingCar.selectWinner(playersCar)).isEqualTo("감자, 고구마");
-//
-//    }
+    @Test
+    void 최종_우승자_선정_확인(){
+        WinnerController winnerController = new WinnerController();
+        List<String> playersCar = new ArrayList<>(Arrays.asList("감자","고구마","옥수수"));
+        Map<String,Boolean> moveInfo = new LinkedHashMap<>(Map.of("감자",true,"고구마",true,"옥수수",false));
+        for (int i = 0; i < 3 ; i++) {
+            winnerController.printResult(moveInfo,playersCar);
+        }
+        assertThat(winnerController.selectWinner(playersCar)).isEqualTo("감자, 고구마");
+
+    }
 }

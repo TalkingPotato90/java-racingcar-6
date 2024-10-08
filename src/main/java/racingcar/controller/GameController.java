@@ -14,6 +14,7 @@ public class GameController {
     private OutputView outputView;
     private InputView inputView;
     private Validation validation;
+    private WinnerController winnerController;
     private List<String> playerCars;
 
     public GameController() {
@@ -21,6 +22,7 @@ public class GameController {
         this.outputView = new OutputView();
         this.inputView = new InputView();
         this.validation = new Validation();
+        this.winnerController = new WinnerController();
     }
 
     public void playGame() {
@@ -44,17 +46,6 @@ public class GameController {
         return count;
     }
 
-    private void printResult(Map<String,Boolean> moveInformation, List<String> playersCar) {
-        for (int i = 0; i < moveInformation.size(); i++) {
-            String carName = playersCar.get(i);
-            if (moveInformation.get(carName)) {
-                OutputController.getInstance().appendResult(carName, Guide.MOVE.getMessage());
-            }
-            outputView.printRaceResult(carName);
-        }
-        outputView.printNextLine();
-    }
-
     private void repeatGame(String count){
         List<Integer> randomNumbers;
         List<Boolean> moves;
@@ -65,13 +56,13 @@ public class GameController {
             moves = racingCar.createMove(randomNumbers);
             moveInformation = racingCar.createMoveInformation(playerCars, moves);
 
-            printResult(moveInformation, playerCars);
+            winnerController.printResult(moveInformation, playerCars);
         }
     }
 
     private void finishGame(){
         outputView.print(Guide.RESULT.getMessage());
-        String winner = racingCar.selectWinner(playerCars);
+        String winner = winnerController.selectWinner(playerCars);
         outputView.print(Guide.WINNER.getMessage() + Guide.COLON.getMessage() + winner);
     }
 }
