@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.model.RacingCar;
+import racingcar.model.Validation;
 import racingcar.util.Guide;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -17,13 +19,14 @@ public class Application {
         String carNames = inputView.getUserInput();
 
         RacingCar racingCar = new RacingCar();
+        Validation validation = new Validation();
         List<String> playerCars = racingCar.createPlayersCar(carNames);
-        racingCar.validateNameLength(playerCars);
+        validation.validateNameLength(playerCars);
 
         outputView.print(Guide.TRY_COUNT.getMessage());
 
         String count = inputView.getUserInput();
-        racingCar.validateTryCounts(count);
+        validation.validateTryCounts(count);
 
         outputView.print(Guide.RESULT.getMessage());
 

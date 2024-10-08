@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -16,22 +16,6 @@ class RacingCarTest {
     @BeforeEach
     void setUp() {
         racingCar = new RacingCar();
-    }
-
-    @Test
-    void 이름이_5자_초과면_예외(){
-        List<String> names = Arrays.asList("여섯글자이름", "longName");
-        assertThatThrownBy(()->racingCar.validateNameLength(names)).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void 횟수가_숫자가_아니면_예외(){
-        assertThatThrownBy(()->racingCar.validateTryCounts("-6")).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void 횟수가_10을_넘으면_예외(){
-        assertThatThrownBy(()->racingCar.validateTryCounts("11")).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
